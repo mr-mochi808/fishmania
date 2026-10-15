@@ -34,7 +34,7 @@ back to the **town square**, and your **chef** cooks it for you. Then you head o
 | 21 | Art style | Bright, cartoony, Ace Angler–like look |
 | 22 | Controls | WASD to walk, mouse to aim the cast, mash Space to reel |
 | 23 | Saving | Autosave in the browser: fish, coins, spirits |
-| 24 | Day length | One in-game day = 10 real minutes |
+| 24 | Day length | Daytime lasts 10 real minutes (see #41 for the full cycle) |
 | 25 | Night | Different fish come out at night, and rare fish are more common |
 | 26 | Gacha cost | Summons cost Spirit Pearls and/or coins |
 | 27 | 3D models | Made with AI 3D model generators (e.g. Meshy, Tripo); placeholders until then |
@@ -51,16 +51,20 @@ back to the **town square**, and your **chef** cooks it for you. Then you head o
 | 38 | Boss timer | Counts total time spent in that area (going to town doesn't reset it). A boss stays ~2 minutes, then leaves and the timer restarts |
 | 39 | Cooking | 1–3 items per dish (fish + extras). Custom dishes are random but weighted by ingredients, get an auto-generated silly name, and can be renamed |
 | 40 | Model tool | Meshy. The creator makes the account; a cartoon outline shader keeps the look consistent |
+| 41 | Day/night split | 10 minutes of day + 12 minutes of night (22-minute full cycle). No sleeping; you fish through the night |
+| 42 | Character | One fixed fisher character; the player types a name at the start. Look customization comes later |
+| 43 | Town | Called "Town Center" |
+| 44 | Audio | Music and sound effects generated with ElevenLabs (Milestone 6) |
 
 ## Open questions
 
-- Night: exact day/night split, and whether you can sleep
+_None — the plan is complete. Details get settled as each milestone is built._
 
 ## Milestones
 
 1. **Fishing core**: dock, fish shadows, mouse aim, cast, mash Space to reel, catch. Placeholder art.
 2. **Town square**: walk with WASD, chef, shop, coins, cook or sell.
-3. **Hunger + day/night**: 10-minute day, meals, night fish.
+3. **Hunger + day/night**: 10-min day + 12-min night, meals, night fish.
 4. **Spirits**: meter, 1/2/3 to summon, earned spirits, then the gacha.
 5. **Progression**: XP and levels, area 2, bosses, recipe book with custom dishes.
 6. **Art + sound**: Meshy models, toon shader, music and sound effects.
