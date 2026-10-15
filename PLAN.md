@@ -24,17 +24,25 @@ back to the **town square**, and your **chef** cooks it for you. Then you head o
 | 11 | Hunger | Hunger bar that causes a penalty when empty (exact effects TBD); no dying |
 | 12 | Town square | A walkable 3D plaza with the chef, shop(s) and the dock |
 | 13 | Fish use | Each fish can be cooked (food) or sold (coins for gear and upgrades) |
+| 14 | Roles | The creator is the director/designer and explains what to build; Claude writes the code |
+| 15 | Engine | Three.js + Vite (JavaScript in the browser); Electron later if we want a PC version |
+| 16 | Hunger drain | Goes down over the in-game day; you need 2–3 meals a day. Fishing itself costs no hunger |
+| 17 | Empty hunger | Mashes count for half and you can't summon spirits |
+| 18 | Getting spirits | Earned by progressing, plus random gacha summons |
+| 19 | Fishing spots | Several areas that unlock as you progress, each with its own fish |
+| 20 | Casting | Fish shadows are visible in the water; you aim at one and cast |
+| 21 | Art style | Bright, cartoony, Ace Angler–like look |
+| 22 | Controls | WASD to walk, mouse to aim the cast, mash Space to reel |
+| 23 | Saving | Autosave in the browser: fish, coins, spirits |
 
 ## Open questions
 
-- Engine / tools
-- Exact hunger effects (how fast it drains, what an empty bar does)
-- How many spirits, and how you get them
-- Fishing spots: one dock or several areas
-- Casting and aiming
-- Art style and where models come from
-- Controls
-- Saving progress
+- Day/night cycle: how long is an in-game day, and what happens at night?
+- Gacha: what do summons cost, and how many spirits in version 1?
+- Who makes the 3D models in the Ace Angler style?
+- Which key summons a spirit?
+- Fish list, chef and recipes, shop and upgrades
+- First milestones
 
 ## Milestones
 
