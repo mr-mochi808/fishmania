@@ -43,18 +43,25 @@ back to the **town square**, and your **chef** cooks it for you. Then you head o
 | 30 | Fish in v1 | 2 areas × ~8 fish, rarities Common / Rare / Epic / Legendary, 1 boss per area |
 | 31 | Boss timing | Bosses/legendaries show up after about 7–10 minutes of fishing |
 | 32 | Chef | Recipe book; you hand the chef fish. Known combos make named dishes; an unknown combo makes a custom dish that gets saved to the book |
-| 33 | Shop | Sells rods (stronger mashes) and bait (rarer shadows) |
+| 33 | Shop | Sells rods (stronger mashes) and bait (rarer shadows), plus a small shelf of cooking extras |
+| 34 | Meals | Breakfast, lunch and dinner each fill about a third of the hunger bar |
+| 35 | Gacha details | 1 summon = 10 Spirit Pearls or 2,000 coins. Duplicates level up the spirit. Rare fish sometimes drop pearls |
+| 36 | Spirits in v1 | 8 total: 3 earned by progressing, 5 from the gacha |
+| 37 | Leveling | XP from catches (rarer gives more) and from discovering new recipes. Levels only unlock things; area 2 opens at level 5 |
+| 38 | Boss timer | Counts total time spent in that area (going to town doesn't reset it). A boss stays ~2 minutes, then leaves and the timer restarts |
+| 39 | Cooking | 1–3 items per dish (fish + extras). Custom dishes are random but weighted by ingredients, get an auto-generated silly name, and can be renamed |
+| 40 | Model tool | Meshy. The creator makes the account; a cartoon outline shader keeps the look consistent |
 
 ## Open questions
 
-- Night: can you sleep to skip it? How long is night compared to day?
-- Gacha: exact costs, and what duplicate spirits do
-- Leveling: how you earn XP and what levels give you
-- Boss timer details
-- Chef: ingredients, how many fish per dish, what custom dishes do
-- Which AI model tool, and who makes the account
-- First milestones
+- Night: exact day/night split, and whether you can sleep
 
 ## Milestones
 
-_To be filled in once the open questions are settled._
+1. **Fishing core**: dock, fish shadows, mouse aim, cast, mash Space to reel, catch. Placeholder art.
+2. **Town square**: walk with WASD, chef, shop, coins, cook or sell.
+3. **Hunger + day/night**: 10-minute day, meals, night fish.
+4. **Spirits**: meter, 1/2/3 to summon, earned spirits, then the gacha.
+5. **Progression**: XP and levels, area 2, bosses, recipe book with custom dishes.
+6. **Art + sound**: Meshy models, toon shader, music and sound effects.
+7. **Saving + polish**.
