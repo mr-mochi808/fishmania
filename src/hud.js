@@ -30,8 +30,8 @@ export class Hud {
     this.el.prompt.className = text ? style : 'hidden';
   }
 
-  showBattle(species) {
-    this.el.battleName.textContent = species.name;
+  showBattle(species, unknown) {
+    this.el.battleName.textContent = unknown ? '???' : species.name;
     this.setRarity(this.el.battleRarity, species.rarity);
     this.el.battle.classList.remove('hidden', 'thrashing');
   }

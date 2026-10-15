@@ -15,7 +15,7 @@ back to the **town square**, and your **chef** cooks it for you. Then you head o
 | 2 | Core loop | Fish → bring catch to town square → chef cooks it → eat → fish again |
 | 3 | Team | Mostly me (the creator); a friend may join later; Claude helps with code |
 | 4 | Platform | Web browser first; downloadable PC version is a maybe |
-| 5 | Visuals | 3D, top-down camera |
+| 5 | Visuals | 3D. While fishing, an Ace Angler–style camera: behind and above the player looking out to sea, zooming toward the fish during a reel battle |
 | 6 | Scope | A few weeks for the first version, possibly growing into a big project |
 | 7 | Audience | Just for fun, as a way to learn to make games |
 | 8 | Experience | Lots of HTML, a little CSS, barely any Java; Claude helps write the code |

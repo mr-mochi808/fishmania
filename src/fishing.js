@@ -173,7 +173,7 @@ export class Fishing {
     fish.mode = 'hooked';
     this.state = 'reel';
     this.hud.hideMarker();
-    this.hud.showBattle(sp);
+    this.hud.showBattle(sp, !this.log[sp.id]); // hide the name until you've caught one
     this.hud.setPrompt(PROMPTS.reel, 'alert');
     this.effects.splash(fish.position, 16, 1.2);
     this.shake(0.3);
@@ -291,6 +291,11 @@ export class Fishing {
     }
 
     this.updateLine();
+  }
+
+  // While reeling, the camera swoops in toward the hooked fish.
+  get cameraFocus() {
+    return this.state === 'reel' ? this.fish.position : null;
   }
 
   // Marker position for the big "!" when a fish bites.

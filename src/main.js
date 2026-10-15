@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { buildWorld, buildPlayer } from './world.js';
+import { buildWorld, buildPlayer, SKY_COLOR } from './world.js';
 import { DOCK_FISH } from './fishData.js';
 import { ShadowManager } from './fishShadows.js';
 import { Effects } from './effects.js';
@@ -13,14 +13,18 @@ renderer.setSize(window.innerWidth, window.innerHeight, false);
 container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x0d4f86);
+scene.background = new THREE.Color(SKY_COLOR);
 
-// Top-down 3D camera, tilted a little so the dock and player read clearly.
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 200);
-const CAMERA_POS = new THREE.Vector3(0, 21, 19);
-const CAMERA_LOOK = new THREE.Vector3(0, 0, -3.5);
-camera.position.copy(CAMERA_POS);
-camera.lookAt(CAMERA_LOOK);
+// Ace Angler-style camera: behind and above the player, looking out to sea with the horizon
+// in view. During a reel battle it swoops in toward the hooked fish.
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 400);
+const CAMERA_OFFSET = new THREE.Vector3(0, 8, 8.5); // from the player
+const CAMERA_LOOK_AHEAD = -14; // how far out to sea the camera looks (z, from the player)
+const BATTLE_OFFSET = new THREE.Vector3(0, 5.5, 8); // from the hooked fish
+const camPos = new THREE.Vector3();
+const camLook = new THREE.Vector3();
+const wantPos = new THREE.Vector3();
+const wantLook = new THREE.Vector3();
 
 scene.add(new THREE.HemisphereLight(0xffffff, 0x88aacc, 1.4));
 const sun = new THREE.DirectionalLight(0xffffff, 1.6);
@@ -30,6 +34,21 @@ scene.add(sun);
 const world = buildWorld(scene);
 const { player, rodPivot, rodTip } = buildPlayer();
 scene.add(player);
+
+function cameraTarget(focus) {
+  if (focus) {
+    // Look mostly at the fish, but keep a bit of the player in the shot.
+    wantLook.lerpVectors(player.position, focus, 0.75).setY(0);
+    wantPos.copy(wantLook).add(BATTLE_OFFSET);
+  } else {
+    wantPos.copy(player.position).add(CAMERA_OFFSET);
+    wantLook.set(player.position.x, 0, player.position.z + CAMERA_LOOK_AHEAD);
+  }
+}
+
+cameraTarget(null);
+camPos.copy(wantPos);
+camLook.copy(wantLook);
 
 let shakeAmount = 0;
 const shake = (amount) => {
@@ -94,13 +113,17 @@ function frame() {
   fishing.update(dt, time);
   effects.update(dt);
 
+  cameraTarget(fishing.cameraFocus);
+  const ease = 1 - Math.exp(-dt * 3);
+  camPos.lerp(wantPos, ease);
+  camLook.lerp(wantLook, ease);
   shakeAmount *= Math.exp(-dt * 6);
   camera.position.set(
-    CAMERA_POS.x + (Math.random() - 0.5) * shakeAmount,
-    CAMERA_POS.y + (Math.random() - 0.5) * shakeAmount,
-    CAMERA_POS.z,
+    camPos.x + (Math.random() - 0.5) * shakeAmount,
+    camPos.y + (Math.random() - 0.5) * shakeAmount,
+    camPos.z,
   );
-  camera.lookAt(CAMERA_LOOK);
+  camera.lookAt(camLook);
 
   const marker = fishing.markerPosition;
   if (marker) {

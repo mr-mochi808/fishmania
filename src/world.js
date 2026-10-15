@@ -3,6 +3,7 @@ import * as THREE from 'three';
 // Where the end of the dock is — the player stands here and fish stay in front of it.
 export const DOCK_END_Z = 3.6;
 export const DECK_Y = 0.55;
+export const SKY_COLOR = 0xbfe6ff;
 
 // The area fish are allowed to swim in.
 export const SWIM_BOUNDS = { minX: -15, maxX: 15, minZ: -17, maxZ: 1.8 };
@@ -11,7 +12,8 @@ const toon = (color) => new THREE.MeshToonMaterial({ color });
 
 function buildWater() {
   const material = new THREE.ShaderMaterial({
-    uniforms: { uTime: { value: 0 } },
+    // The shader writes colors straight to the screen, so the sky color is passed in unconverted.
+    uniforms: { uTime: { value: 0 }, uSky: { value: new THREE.Color().setHex(SKY_COLOR, THREE.LinearSRGBColorSpace) } },
     vertexShader: /* glsl */ `
       varying vec3 vWorld;
       void main() {
@@ -22,6 +24,7 @@ function buildWater() {
     `,
     fragmentShader: /* glsl */ `
       uniform float uTime;
+      uniform vec3 uSky;
       varying vec3 vWorld;
       void main() {
         vec2 p = vWorld.xz * 0.45;
@@ -30,17 +33,20 @@ function buildWater() {
         float bands = smoothstep(0.80, 0.84, w * 0.5 + 0.5);
         vec3 deep = vec3(0.05, 0.33, 0.6);
         vec3 shallow = vec3(0.2, 0.66, 0.88);
-        float nearShore = smoothstep(-22.0, 9.0, vWorld.z);
+        float nearShore = smoothstep(-30.0, 9.0, vWorld.z);
         vec3 col = mix(deep, shallow, nearShore);
         col = mix(col, vec3(0.8, 0.95, 1.0), bands * 0.22);
+        // Fade into the sky far away so the horizon looks soft.
+        float haze = smoothstep(35.0, 140.0, distance(vWorld, cameraPosition));
+        col = mix(col, uSky, haze);
         gl_FragColor = vec4(col, 1.0);
       }
     `,
   });
-  const geo = new THREE.PlaneGeometry(120, 80);
+  const geo = new THREE.PlaneGeometry(500, 400);
   geo.rotateX(-Math.PI / 2);
   const water = new THREE.Mesh(geo, material);
-  water.position.z = -12;
+  water.position.z = -150;
   return water;
 }
 
