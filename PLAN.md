@@ -34,14 +34,25 @@ back to the **town square**, and your **chef** cooks it for you. Then you head o
 | 21 | Art style | Bright, cartoony, Ace Angler–like look |
 | 22 | Controls | WASD to walk, mouse to aim the cast, mash Space to reel |
 | 23 | Saving | Autosave in the browser: fish, coins, spirits |
+| 24 | Day length | One in-game day = 10 real minutes |
+| 25 | Night | Different fish come out at night, and rare fish are more common |
+| 26 | Gacha cost | Summons cost Spirit Pearls and/or coins |
+| 27 | 3D models | Made with AI 3D model generators (e.g. Meshy, Tripo); placeholders until then |
+| 28 | Spirits in a fight | Bring up to 3 spirits; press 1 / 2 / 3 to summon one when the meter is full |
+| 29 | Area unlocks | New fishing areas unlock when you reach a certain player level |
+| 30 | Fish in v1 | 2 areas × ~8 fish, rarities Common / Rare / Epic / Legendary, 1 boss per area |
+| 31 | Boss timing | Bosses/legendaries show up after about 7–10 minutes of fishing |
+| 32 | Chef | Recipe book; you hand the chef fish. Known combos make named dishes; an unknown combo makes a custom dish that gets saved to the book |
+| 33 | Shop | Sells rods (stronger mashes) and bait (rarer shadows) |
 
 ## Open questions
 
-- Day/night cycle: how long is an in-game day, and what happens at night?
-- Gacha: what do summons cost, and how many spirits in version 1?
-- Who makes the 3D models in the Ace Angler style?
-- Which key summons a spirit?
-- Fish list, chef and recipes, shop and upgrades
+- Night: can you sleep to skip it? How long is night compared to day?
+- Gacha: exact costs, and what duplicate spirits do
+- Leveling: how you earn XP and what levels give you
+- Boss timer details
+- Chef: ingredients, how many fish per dish, what custom dishes do
+- Which AI model tool, and who makes the account
 - First milestones
 
 ## Milestones
