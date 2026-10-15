@@ -62,7 +62,7 @@ _None — the plan is complete. Details get settled as each milestone is built._
 
 ## Milestones
 
-1. **Fishing core**: dock, fish shadows, mouse aim, cast, mash Space to reel, catch. Placeholder art.
+1. ✅ **Fishing core**: dock, fish shadows, mouse aim, cast, mash Space to reel, catch. Placeholder art.
 2. **Town square**: walk with WASD, chef, shop, coins, cook or sell.
 3. **Hunger + day/night**: 10-min day + 12-min night, meals, night fish.
 4. **Spirits**: meter, 1/2/3 to summon, earned spirits, then the gacha.

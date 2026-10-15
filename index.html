@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fishmania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="game"></div>
+
+    <div id="hud">
+      <div id="area-badge">
+        <div class="area-name">Town Dock</div>
+        <div class="catch-count">Catches: <span id="catch-count">0</span></div>
+      </div>
+
+      <div id="catch-log">
+        <div class="log-title">Fish Book</div>
+        <ul id="log-list"></ul>
+      </div>
+
+      <div id="battle" class="hidden">
+        <div class="battle-fish">
+          <span id="battle-name">Fish</span>
+          <span id="battle-rarity" class="rarity">Common</span>
+        </div>
+        <div class="bar-label">Fish stamina</div>
+        <div class="bar"><div id="hp-fill" class="fill hp"></div></div>
+        <div class="bar-label">Line time</div>
+        <div class="bar small"><div id="time-fill" class="fill time"></div></div>
+        <div id="mash-text">MASH SPACE!</div>
+      </div>
+
+      <div id="bite-marker" class="hidden">!</div>
+
+      <div id="prompt">Click the water near a fish shadow to cast</div>
+
+      <div id="catch-card" class="hidden">
+        <div class="card-new hidden" id="card-new">NEW!</div>
+        <div class="card-caught">You caught a</div>
+        <div class="card-name" id="card-name">Sardine</div>
+        <div class="card-rarity rarity" id="card-rarity">Common</div>
+        <div class="card-size" id="card-size">18 cm</div>
+        <div class="card-hint">Press SPACE or click to continue</div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
